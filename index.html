@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Astrid | XII RPL</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #faf8ff;
+      --bg2: #f2edff;
+      --card: rgba(255,255,255,.78);
+      --text: #21182f;
+      --muted: #746a82;
+      --primary: #7c3aed;
+      --primary2: #a855f7;
+      --border: rgba(124,58,237,.14);
+      --shadow: 0 20px 50px rgba(91,33,182,.12);
+    }
+
+    body.dark {
+      --bg: #100b18;
+      --bg2: #180e25;
+      --card: rgba(31,20,45,.82);
+      --text: #f7f1ff;
+      --muted: #b9abc8;
+      --primary: #a855f7;
+      --primary2: #c084fc;
+      --border: rgba(192,132,252,.16);
+      --shadow: 0 20px 50px rgba(0,0,0,.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(168,85,247,.13), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(124,58,237,.12), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      transition: .4s ease;
+      overflow-x: hidden;
+    }
+
+    /* ================= LOADER ================= */
+
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #12091d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: 1s ease;
+    }
+
+    .loader-logo {
+      width: 85px;
+      height: 85px;
+      border-radius: 25px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #7c3aed, #c084fc);
+      color: white;
+      font-size: 34px;
+      font-weight: 800;
+      box-shadow: 0 0 50px rgba(168,85,247,.45);
+      animation: pulse 1.5s infinite;
+    }
+
+    .loader-text {
+      color: white;
+      margin-top: 20px;
+      font-size: 15px;
+      letter-spacing: 3px;
+    }
+
+    .loader-line {
+      width: 160px;
+      height: 3px;
+      background: rgba(255,255,255,.15);
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .loader-line span {
+      display: block;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg,#7c3aed,#c084fc);
+      animation: loading 1.3s infinite;
+    }
+
+    @keyframes loading {
+      from {
+        transform: translateX(-150%);
+      }
+
+      to {
+        transform: translateX(400%);
+      }
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    /* ================= NAVBAR ================= */
+
+    nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1120px, 92%);
+      z-index: 1000;
+      padding: 13px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg,#6d28d9,#c084fc);
+      box-shadow: 0 8px 20px rgba(124,58,237,.3);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .theme-btn {
+      border: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      cursor: pointer;
+      background: var(--bg2);
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 140px 7% 80px;
+      position: relative;
+    }
+
+    .hero-container {
+      max-width: 1120px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 9px 15px;
+      border-radius: 100px;
+      background: rgba(124,58,237,.1);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      animation: fadeUp .8s .3s both;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      animation: fadeUp .8s .5s both;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        90deg,
+        #6d28d9,
+        #a855f7,
+        #d8b4fe
+      );
+
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin: 22px 0;
+      max-width: 620px;
+      color: var(--muted);
+      line-height: 1.8;
+      animation: fadeUp .8s .7s both;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeUp .8s .9s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 13px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(
+        135deg,
+        #6d28d9,
+        #a855f7
+      );
+
+      box-shadow: 0 12px 25px rgba(124,58,237,.25);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    /* ================= FOTO ================= */
+
+    .profile-wrap {
+      display: grid;
+      place-items: center;
+      animation: zoomIn 1s .5s both;
+    }
+
+    .profile {
+      width: min(330px,75vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 10px;
+
+      background: linear-gradient(
+        135deg,
+        #6d28d9,
+        #a855f7,
+        #e9d5ff
+      );
+
+      box-shadow:
+        0 0 0 12px rgba(168,85,247,.06),
+        0 30px 70px rgba(91,33,182,.25);
+
+      animation: floating 5s ease-in-out infinite;
+    }
+
+    .profile-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(124,58,237,.2),
+          rgba(192,132,252,.08)
+        ),
+        var(--bg2);
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      overflow: hidden;
+    }
+
+    /* FOTO TIDAK TERPOTONG */
+    .profile-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+    }
+
+    @keyframes floating {
+      50% {
+        transform: translateY(-13px);
+      }
+    }
+
+    /* ================= SECTION ================= */
+
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: clamp(30px,5vw,45px);
+      margin-top: 8px;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(15px);
+      transition: .4s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(168,85,247,.35);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    /* ================= SKILLS ================= */
+
+    .skills {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      height: 9px;
+      border-radius: 20px;
+      background: var(--bg2);
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+
+      background: linear-gradient(
+        90deg,
+        #6d28d9,
+        #c084fc
+      );
+
+      transition: width 1.5s ease;
+    }
+
+    /* ================= PROJECT ================= */
+
+    .projects {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .project-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: rgba(124,58,237,.1);
+      color: var(--primary);
+      font-size: 23px;
+      margin-bottom: 18px;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-card {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(109,40,217,.95),
+          rgba(168,85,247,.92)
+        );
+
+      color: white;
+      border-radius: 30px;
+      padding: 50px 25px;
+
+      box-shadow:
+        0 25px 60px rgba(91,33,182,.3);
+    }
+
+    .contact-card p {
+      opacity: .85;
+      margin: 12px auto 25px;
+      max-width: 600px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      color: #24102f;
+      background: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      transition: .3s;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-4px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ================= ANIMATION ================= */
+
+    @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    @keyframes zoomIn {
+
+      from {
+        opacity: 0;
+        transform: scale(.75);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .profile-wrap {
+        order: -1;
+      }
+
+      .profile {
+        width: 230px;
+      }
+
+      .about-grid,
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 6%;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= LOADER ================= -->
+
+  <div id="loader">
+
+    <div class="loader-logo">
+      A
+    </div>
+
+    <div class="loader-text">
+      ASTRID PORTFOLIO
+    </div>
+
+    <div class="loader-line">
+      <span></span>
+    </div>
+
+  </div>
+
+
+  <!-- ================= NAVBAR ================= -->
+
+  <nav>
+
+    <a href="#beranda" class="brand">
+
+      <div class="brand-logo">
+        A
+      </div>
+
+      <span>
+        Astrid.
+      </span>
+
+    </a>
+
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="#beranda">
+          Beranda
+        </a>
+      </li>
+
+      <li>
+        <a href="#tentang">
+          Tentang
+        </a>
+      </li>
+
+      <li>
+        <a href="#skills">
+          Keahlian
+        </a>
+      </li>
+
+      <li>
+        <a href="#project">
+          Project
+        </a>
+      </li>
+
+      <li>
+        <a href="#kontak">
+          Kontak
+        </a>
+      </li>
+
+    </ul>
+
+
+    <button
+      class="theme-btn"
+      onclick="toggleTheme()"
+      id="themeBtn">
+
+      ☾
+
+    </button>
+
+  </nav>
+
+
+  <!-- ================= BERANDA ================= -->
+
+  <section
+    class="hero"
+    id="beranda">
+
+    <div class="hero-container">
+
+
+      <div>
+
+        <div class="badge">
+          XII • REKAYASA PERANGKAT LUNAK
+        </div>
+
+
+        <h1>
+
+          Halo, Saya
+          <br>
+
+          <span class="gradient">
+            Astrid.
+          </span>
+
+        </h1>
+
+
+        <p>
+
+          Pelajar SMK Negeri 1 Semparuk
+          dari jurusan Rekayasa Perangkat Lunak.
+          Selamat datang di website portfolio saya.
+
+        </p>
+
+
+        <div class="buttons">
+
+          <a
+            href="#project"
+            class="btn btn-primary">
+
+            Lihat Project
+
+          </a>
+
+
+          <a
+            href="#kontak"
+            class="btn btn-secondary">
+
+            Hubungi Saya
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- FOTO -->
+
+      <div class="profile-wrap">
+
+        <div class="profile">
+
+          <div class="profile-inner">
+
+            <img
+              src="image/profile.jpg"
+              alt="Foto Astrid">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TENTANG ================= -->
+
+  <section id="tentang">
+
+    <div class="section-title reveal">
+
+      <small>
+        Profil
+      </small>
+
+      <h2>
+        Tentang Saya
+      </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+      <div class="card reveal">
+
+        <h3>
+          👩‍💻 Astrid
+        </h3>
+
+        <p>
+
+          Saya adalah siswi SMK Negeri 1 Semparuk
+          yang sedang menempuh pendidikan di jurusan
+          Rekayasa Perangkat Lunak. Saya tertarik
+          dengan dunia teknologi, website, dan
+          pengembangan aplikasi.
+
+        </p>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3>
+          🎓 Pendidikan
+        </h3>
+
+        <p>
+
+          <b>
+            SMK Negeri 1 Semparuk
+          </b>
+
+          <br>
+
+          Jurusan Rekayasa Perangkat Lunak
+
+          <br>
+
+          Kelas XII
+
+        </p>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3>
+          ✨ Hobi
+        </h3>
+
+        <p>
+
+          Jelajahi dan isi bagian ini
+          dengan hobi Astrid.
+
+          Contoh:
+          membaca, mendengarkan musik,
+          desain, coding, atau kegiatan lainnya.
+
+        </p>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3>
+          🚀 Tujuan
+        </h3>
+
+        <p>
+
+          Terus belajar, mengembangkan kemampuan
+          di bidang teknologi, serta menghasilkan
+          karya digital yang bermanfaat.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SKILLS ================= -->
+
+  <section id="skills">
+
+    <div class="section-title reveal">
+
+      <small>
+        Keahlian
+      </small>
+
+      <h2>
+        My Skills
+      </h2>
+
+    </div>
+
+
+    <div class="skills">
+
+
+      <div class="card reveal">
+
+
+        <div class="skill">
+
+          <div class="skill-top">
+
+            <span>
+              HTML
+            </span>
+
+            <span>
+              90%
+            </span>
+
+          </div>
+
+          <div class="bar">
+
+            <span
+              data-width="90%">
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-top">
+
+            <span>
+              CSS
+            </span>
+
+            <span>
+              85%
+            </span>
+
+          </div>
+
+          <div class="bar">
+
+            <span
+              data-width="85%">
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-top">
+
+            <span>
+              JavaScript
+            </span>
+
+            <span>
+              75%
+            </span>
+
+          </div>
+
+          <div class="bar">
+
+            <span
+              data-width="75%">
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="card reveal">
+
+
+        <div class="skill">
+
+          <div class="skill-top">
+
+            <span>
+              UI Design
+            </span>
+
+            <span>
+              80%
+            </span>
+
+          </div>
+
+          <div class="bar">
+
+            <span
+              data-width="80%">
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-top">
+
+            <span>
+              PHP
+            </span>
+
+            <span>
+              70%
+            </span>
+
+          </div>
+
+          <div class="bar">
+
+            <span
+              data-width="70%">
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-top">
+
+            <span>
+              Database
+            </span>
+
+            <span>
+              75%
+            </span>
+
+          </div>
+
+          <div class="bar">
+
+            <span
+              data-width="75%">
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROJECT ================= -->
+
+  <section id="project">
+
+    <div class="section-title reveal">
+
+      <small>
+        Karya
+      </small>
+
+      <h2>
+        Project Saya
+      </h2>
+
+    </div>
+
+
+    <div class="projects">
+
+
+      <div class="card reveal">
+
+        <div class="project-icon">
+          🌐
+        </div>
+
+        <h3>
+          Website Portfolio
+        </h3>
+
+        <p>
+
+          Website portfolio pribadi untuk
+          menampilkan profil, keahlian,
+          dan project yang pernah dibuat.
+
+        </p>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <div class="project-icon">
+          💻
+        </div>
+
+        <h3>
+          Website Sekolah
+        </h3>
+
+        <p>
+
+          Project website sekolah yang dapat
+          dikembangkan sebagai media informasi digital.
+
+        </p>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <div class="project-icon">
+          📊
+        </div>
+
+        <h3>
+          Sistem Pendataan
+        </h3>
+
+        <p>
+
+          Project aplikasi pendataan sederhana
+          untuk membantu mengelola informasi
+          secara lebih terstruktur.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= KONTAK ================= -->
+
+  <section id="kontak">
+
+    <div class="contact reveal">
+
+
+      <div class="contact-card">
+
+        <small>
+          TERHUBUNG DENGAN SAYA
+        </small>
+
+
+        <h2
+          style="font-size:32px;margin-top:8px;">
+
+          Mari Terhubung
+
+        </h2>
+
+
+        <p>
+
+          Jika ingin menghubungi saya atau
+          mengetahui lebih banyak tentang
+          portfolio saya, silakan gunakan
+          salah satu kontak berikut.
+
+        </p>
+
+
+        <div class="contact-buttons">
+
+
+          <a
+            class="contact-btn"
+            href="https://wa.me/62895701804424"
+            target="_blank">
+
+            WhatsApp
+
+          </a>
+
+
+          <a
+            class="contact-btn"
+            href="#"
+            onclick="alert('Instagram Astrid belum ditambahkan.')">
+
+            Instagram
+
+          </a>
+
+
+          <a
+            class="contact-btn"
+            href="#"
+            onclick="alert('GitHub Astrid belum ditambahkan.')">
+
+            GitHub
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    ©️ 2026 Astrid • Rekayasa Perangkat Lunak
+
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    /* LOADER */
+
+    window.addEventListener("load", () => {
+
+      setTimeout(() => {
+
+        const loader =
+          document.getElementById("loader");
+
+        loader.style.opacity = "0";
+
+        loader.style.pointerEvents = "none";
+
+
+        setTimeout(() => {
+
+          loader.style.display = "none";
+
+        }, 1000);
+
+      }, 1300);
+
+    });
+
+
+    /* DARK MODE */
+
+    function toggleTheme() {
+
+      document.body.classList.toggle("dark");
+
+      const btn =
+        document.getElementById("themeBtn");
+
+
+      if (
+        document.body.classList.contains("dark")
+      ) {
+
+        btn.textContent = "☀";
+
+        localStorage.setItem(
+          "theme",
+          "dark"
+        );
+
+      } else {
+
+        btn.textContent = "☾";
+
+        localStorage.setItem(
+          "theme",
+          "light"
+        );
+
+      }
+
+    }
+
+
+    /* CEK TEMA */
+
+    if (
+      localStorage.getItem("theme") === "dark"
+    ) {
+
+      document.body.classList.add("dark");
+
+      document.getElementById(
+        "themeBtn"
+      ).textContent = "☀";
+
+    }
+
+
+    /* SCROLL REVEAL */
+
+    const observer =
+      new IntersectionObserver(
+
+        (entries) => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("show");
+
+
+              const bars =
+                entry.target.querySelectorAll(
+                  ".bar span"
+                );
+
+
+              bars.forEach(bar => {
+
+                bar.style.width =
+                  bar.dataset.width;
+
+              });
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold: .15
+        }
+
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(el => {
+
+        observer.observe(el);
+
+      });
+
+  </script>
+
+</body>
+</html>
