@@ -108,7 +108,6 @@
       from {
         transform: translateX(-150%);
       }
-
       to {
         transform: translateX(400%);
       }
@@ -235,7 +234,6 @@
         #a855f7,
         #d8b4fe
       );
-
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -274,7 +272,6 @@
         #6d28d9,
         #a855f7
       );
-
       box-shadow: 0 12px 25px rgba(124,58,237,.25);
     }
 
@@ -301,18 +298,15 @@
       aspect-ratio: 1;
       border-radius: 50%;
       padding: 10px;
-
       background: linear-gradient(
         135deg,
         #6d28d9,
         #a855f7,
         #e9d5ff
       );
-
       box-shadow:
         0 0 0 12px rgba(168,85,247,.06),
         0 30px 70px rgba(91,33,182,.25);
-
       animation: floating 5s ease-in-out infinite;
     }
 
@@ -320,7 +314,6 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-
       background:
         linear-gradient(
           135deg,
@@ -328,11 +321,9 @@
           rgba(192,132,252,.08)
         ),
         var(--bg2);
-
       display: flex;
       align-items: flex-end;
       justify-content: center;
-
       overflow: hidden;
     }
 
@@ -443,13 +434,11 @@
       height: 100%;
       width: 0;
       border-radius: inherit;
-
       background: linear-gradient(
         90deg,
         #6d28d9,
         #c084fc
       );
-
       transition: width 1.5s ease;
     }
 
@@ -490,11 +479,9 @@
           rgba(109,40,217,.95),
           rgba(168,85,247,.92)
         );
-
       color: white;
       border-radius: 30px;
       padding: 50px 25px;
-
       box-shadow:
         0 25px 60px rgba(91,33,182,.3);
     }
@@ -537,31 +524,25 @@
     /* ================= ANIMATION ================= */
 
     @keyframes fadeUp {
-
       from {
         opacity: 0;
         transform: translateY(35px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
-
     }
 
     @keyframes zoomIn {
-
       from {
         opacity: 0;
         transform: scale(.75);
       }
-
       to {
         opacity: 1;
         transform: scale(1);
       }
-
     }
 
     .reveal {
@@ -578,52 +559,40 @@
     /* ================= MOBILE ================= */
 
     @media(max-width:800px) {
-
       .nav-links {
         display: none;
       }
-
       .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
       }
-
       .hero p {
         margin-left: auto;
         margin-right: auto;
       }
-
       .buttons {
         justify-content: center;
       }
-
       .profile-wrap {
         order: -1;
       }
-
       .profile {
         width: 230px;
       }
-
       .about-grid,
       .skills {
         grid-template-columns: 1fr;
       }
-
       .projects {
         grid-template-columns: 1fr;
       }
-
       section {
         padding: 75px 6%;
       }
-
       h1 {
         letter-spacing: -2px;
       }
-
     }
-
   </style>
 </head>
 
@@ -632,83 +601,64 @@
   <!-- ================= LOADER ================= -->
 
   <div id="loader">
-
     <div class="loader-logo">
       A
     </div>
-
     <div class="loader-text">
       ASTRID PORTFOLIO
     </div>
-
     <div class="loader-line">
       <span></span>
     </div>
-
   </div>
 
 
   <!-- ================= NAVBAR ================= -->
 
   <nav>
-
     <a href="#beranda" class="brand">
-
       <div class="brand-logo">
         A
       </div>
-
       <span>
         Astrid.
       </span>
-
     </a>
 
-
     <ul class="nav-links">
-
       <li>
         <a href="#beranda">
           Beranda
         </a>
       </li>
-
       <li>
         <a href="#tentang">
           Tentang
         </a>
       </li>
-
       <li>
         <a href="#skills">
           Keahlian
         </a>
       </li>
-
       <li>
         <a href="#project">
           Project
         </a>
       </li>
-
       <li>
         <a href="#kontak">
           Kontak
         </a>
       </li>
-
     </ul>
-
 
     <button
       class="theme-btn"
       onclick="toggleTheme()"
       id="themeBtn">
-
       ☾
-
     </button>
-
   </nav>
 
 
@@ -720,75 +670,50 @@
 
     <div class="hero-container">
 
-
       <div>
-
         <div class="badge">
           XII • REKAYASA PERANGKAT LUNAK
         </div>
 
-
         <h1>
-
           Halo, Saya
           <br>
-
           <span class="gradient">
             Astrid.
           </span>
-
         </h1>
 
-
         <p>
-
           Pelajar SMK Negeri 1 Semparuk
           dari jurusan Rekayasa Perangkat Lunak.
           Selamat datang di website portfolio saya.
-
         </p>
 
-
         <div class="buttons">
-
           <a
             href="#project"
             class="btn btn-primary">
-
             Lihat Project
-
           </a>
-
 
           <a
             href="#kontak"
             class="btn btn-secondary">
-
             Hubungi Saya
-
           </a>
-
         </div>
-
       </div>
-
 
       <!-- FOTO -->
 
       <div class="profile-wrap">
-
         <div class="profile">
-
           <div class="profile-inner">
-
             <img
-              src="image/astrid.PNG"
+              src="astrid.PNG"
               alt="Foto Astrid">
-
           </div>
-
         </div>
-
       </div>
 
     </div>
@@ -801,99 +726,66 @@
   <section id="tentang">
 
     <div class="section-title reveal">
-
       <small>
         Profil
       </small>
-
       <h2>
         Tentang Saya
       </h2>
-
     </div>
-
 
     <div class="about-grid">
 
-
       <div class="card reveal">
-
         <h3>
           👩‍💻 Astrid
         </h3>
-
         <p>
-
           Saya adalah siswi SMK Negeri 1 Semparuk
           yang sedang menempuh pendidikan di jurusan
           Rekayasa Perangkat Lunak. Saya tertarik
           dengan dunia teknologi, website, dan
           pengembangan aplikasi.
-
         </p>
-
       </div>
 
-
       <div class="card reveal">
-
         <h3>
           🎓 Pendidikan
         </h3>
-
         <p>
-
           <b>
             SMK Negeri 1 Semparuk
           </b>
-
           <br>
-
           Jurusan Rekayasa Perangkat Lunak
-
           <br>
-
           Kelas XII
-
         </p>
-
       </div>
 
-
       <div class="card reveal">
-
         <h3>
           ✨ Hobi
         </h3>
-
         <p>
-
           Jelajahi dan isi bagian ini
           dengan hobi Astrid.
-
           Contoh:
           membaca, mendengarkan musik,
           desain, coding, atau kegiatan lainnya.
-
         </p>
-
       </div>
 
-
       <div class="card reveal">
-
         <h3>
           🚀 Tujuan
         </h3>
-
         <p>
-
           Terus belajar, mengembangkan kemampuan
           di bidang teknologi, serta menghasilkan
           karya digital yang bermanfaat.
-
         </p>
-
       </div>
 
     </div>
@@ -906,179 +798,117 @@
   <section id="skills">
 
     <div class="section-title reveal">
-
       <small>
         Keahlian
       </small>
-
       <h2>
         My Skills
       </h2>
-
     </div>
-
 
     <div class="skills">
 
-
       <div class="card reveal">
 
-
         <div class="skill">
-
           <div class="skill-top">
-
             <span>
               HTML
             </span>
-
             <span>
               90%
             </span>
-
           </div>
-
           <div class="bar">
-
             <span
               data-width="90%">
             </span>
-
           </div>
-
         </div>
 
-
         <div class="skill">
-
           <div class="skill-top">
-
             <span>
               CSS
             </span>
-
             <span>
               85%
             </span>
-
           </div>
-
           <div class="bar">
-
             <span
               data-width="85%">
             </span>
-
           </div>
-
         </div>
 
-
         <div class="skill">
-
           <div class="skill-top">
-
             <span>
               JavaScript
             </span>
-
             <span>
               75%
             </span>
-
           </div>
-
           <div class="bar">
-
             <span
               data-width="75%">
             </span>
-
           </div>
-
         </div>
-
 
       </div>
 
-
       <div class="card reveal">
 
-
         <div class="skill">
-
           <div class="skill-top">
-
             <span>
               UI Design
             </span>
-
             <span>
               80%
             </span>
-
           </div>
-
           <div class="bar">
-
             <span
               data-width="80%">
             </span>
-
           </div>
-
         </div>
 
-
         <div class="skill">
-
           <div class="skill-top">
-
             <span>
               PHP
             </span>
-
             <span>
               70%
             </span>
-
           </div>
-
           <div class="bar">
-
             <span
               data-width="70%">
             </span>
-
           </div>
-
         </div>
 
-
         <div class="skill">
-
           <div class="skill-top">
-
             <span>
               Database
             </span>
-
             <span>
               75%
             </span>
-
           </div>
-
           <div class="bar">
-
             <span
               data-width="75%">
             </span>
-
           </div>
-
         </div>
-
 
       </div>
 
@@ -1092,82 +922,56 @@
   <section id="project">
 
     <div class="section-title reveal">
-
       <small>
         Karya
       </small>
-
       <h2>
         Project Saya
       </h2>
-
     </div>
-
 
     <div class="projects">
 
-
       <div class="card reveal">
-
         <div class="project-icon">
           🌐
         </div>
-
         <h3>
           Website Portfolio
         </h3>
-
         <p>
-
           Website portfolio pribadi untuk
           menampilkan profil, keahlian,
           dan project yang pernah dibuat.
-
         </p>
-
       </div>
 
-
       <div class="card reveal">
-
         <div class="project-icon">
           💻
         </div>
-
         <h3>
           Website Sekolah
         </h3>
-
         <p>
-
           Project website sekolah yang dapat
           dikembangkan sebagai media informasi digital.
-
         </p>
-
       </div>
 
-
       <div class="card reveal">
-
         <div class="project-icon">
           📊
         </div>
-
         <h3>
           Sistem Pendataan
         </h3>
-
         <p>
-
           Project aplikasi pendataan sederhana
           untuk membantu mengelola informasi
           secara lebih terstruktur.
-
         </p>
-
       </div>
-
 
     </div>
 
@@ -1180,67 +984,45 @@
 
     <div class="contact reveal">
 
-
       <div class="contact-card">
-
         <small>
           TERHUBUNG DENGAN SAYA
         </small>
 
-
         <h2
           style="font-size:32px;margin-top:8px;">
-
           Mari Terhubung
-
         </h2>
 
-
         <p>
-
           Jika ingin menghubungi saya atau
           mengetahui lebih banyak tentang
           portfolio saya, silakan gunakan
           salah satu kontak berikut.
-
         </p>
 
-
         <div class="contact-buttons">
-
-
           <a
             class="contact-btn"
             href="https://wa.me/62895701804424"
             target="_blank">
-
             WhatsApp
-
           </a>
-
 
           <a
             class="contact-btn"
             href="#"
             onclick="alert('Instagram Astrid belum ditambahkan.')">
-
             Instagram
-
           </a>
-
 
           <a
             class="contact-btn"
             href="#"
             onclick="alert('GitHub Astrid belum ditambahkan.')">
-
             GitHub
-
           </a>
-
-
         </div>
-
       </div>
 
     </div>
@@ -1251,139 +1033,90 @@
   <!-- ================= FOOTER ================= -->
 
   <footer>
-
     ©️ 2026 Astrid • Rekayasa Perangkat Lunak
-
   </footer>
 
 
   <!-- ================= JAVASCRIPT ================= -->
 
   <script>
-
     /* LOADER */
-
     window.addEventListener("load", () => {
-
       setTimeout(() => {
-
         const loader =
           document.getElementById("loader");
-
         loader.style.opacity = "0";
-
         loader.style.pointerEvents = "none";
 
-
         setTimeout(() => {
-
           loader.style.display = "none";
-
         }, 1000);
-
       }, 1300);
-
     });
 
-
     /* DARK MODE */
-
     function toggleTheme() {
-
       document.body.classList.toggle("dark");
-
       const btn =
         document.getElementById("themeBtn");
-
 
       if (
         document.body.classList.contains("dark")
       ) {
-
         btn.textContent = "☀";
-
         localStorage.setItem(
           "theme",
           "dark"
         );
-
       } else {
-
         btn.textContent = "☾";
-
         localStorage.setItem(
           "theme",
           "light"
         );
-
       }
-
     }
 
-
     /* CEK TEMA */
-
     if (
       localStorage.getItem("theme") === "dark"
     ) {
-
       document.body.classList.add("dark");
-
       document.getElementById(
         "themeBtn"
       ).textContent = "☀";
-
     }
 
-
     /* SCROLL REVEAL */
-
     const observer =
       new IntersectionObserver(
-
         (entries) => {
-
           entries.forEach(entry => {
-
             if (entry.isIntersecting) {
-
               entry.target.classList.add("show");
-
 
               const bars =
                 entry.target.querySelectorAll(
                   ".bar span"
                 );
 
-
               bars.forEach(bar => {
-
                 bar.style.width =
                   bar.dataset.width;
-
               });
-
             }
-
           });
-
         },
-
         {
           threshold: .15
         }
-
       );
-
 
     document
       .querySelectorAll(".reveal")
       .forEach(el => {
-
         observer.observe(el);
-
       });
-
   </script>
 
 </body>
